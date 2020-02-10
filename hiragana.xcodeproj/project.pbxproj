@@ -15,6 +15,7 @@
 		7DB0ED4123F18CDB009A866D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3F23F18CDB009A866D /* LaunchScreen.storyboard */; };
 		7DB0ED4C23F18CDC009A866D /* hiraganaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED4B23F18CDC009A866D /* hiraganaTests.swift */; };
 		7DB0ED5723F18CDC009A866D /* hiraganaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED5623F18CDC009A866D /* hiraganaUITests.swift */; };
+		7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF111EB23F1ADF600426D68 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7DB0ED5223F18CDC009A866D /* hiraganaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hiraganaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB0ED5623F18CDC009A866D /* hiraganaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hiraganaUITests.swift; sourceTree = "<group>"; };
 		7DB0ED5823F18CDC009A866D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DF111EB23F1ADF600426D68 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				7DB0ED3423F18CD9009A866D /* AppDelegate.swift */,
 				7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */,
 				7DB0ED3823F18CD9009A866D /* ViewController.swift */,
+				7DF111EB23F1ADF600426D68 /* SettingViewController.swift */,
 				7DB0ED3A23F18CD9009A866D /* Main.storyboard */,
 				7DB0ED3D23F18CDB009A866D /* Assets.xcassets */,
 				7DB0ED3F23F18CDB009A866D /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				7DB0ED3923F18CD9009A866D /* ViewController.swift in Sources */,
 				7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */,
 				7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */,
+				7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
