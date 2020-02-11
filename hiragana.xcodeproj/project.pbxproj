@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D039F5223F30050007F1139 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5123F30050007F1139 /* Constants.swift */; };
 		7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3423F18CD9009A866D /* AppDelegate.swift */; };
 		7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */; };
 		7DB0ED3923F18CD9009A866D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3823F18CD9009A866D /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D039F5123F30050007F1139 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7DB0ED3123F18CD9009A866D /* hiragana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiragana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB0ED3423F18CD9009A866D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				7DB0ED3423F18CD9009A866D /* AppDelegate.swift */,
 				7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */,
+				7D039F5123F30050007F1139 /* Constants.swift */,
 				7DB0ED3A23F18CD9009A866D /* Main.storyboard */,
 				7DB0ED3D23F18CDB009A866D /* Assets.xcassets */,
 				7DB0ED3F23F18CDB009A866D /* LaunchScreen.storyboard */,
@@ -294,6 +297,7 @@
 				7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */,
 				7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */,
 				7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */,
+				7D039F5223F30050007F1139 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@ import Foundation
 
 class APIYahoo: NSObject, XMLParserDelegate {
     
+    // MARK: Initialize
+    
     struct API {
         private init() {}
         
@@ -17,15 +19,18 @@ class APIYahoo: NSObject, XMLParserDelegate {
         static let method = "POST"
         static let contentType = "application/x-www-form-urlencoded"
         static let userAgent = "Yahoo AppID: dj00aiZpPVg5c1c5S3lzT0huRSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTE-"
-        static let outputType = "hiragana"
     }
     
     var elementName: String = String()
     var responseStr: String = String()
+    var shouldParse: Bool = true
+    let exceptions: [String] = ["。", "、", "＊", "？", "！", "(", ")", "「", "」", "…"]
         
     static let shared = APIYahoo()
     
     private override init() {}
+    
+    // MARK: Functions
     
     func sendRequest(sentence: String?) {
         // Config URL
@@ -67,13 +72,37 @@ class APIYahoo: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.elementName = elementName
+        
+        if (elementName == "Word") {
+            self.shouldParse = true
+        } else if (elementName == "SubWordList") {
+            // To skip <SubWordList>
+            self.shouldParse = false
+        }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         let str = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        if self.elementName == "Furigana" {
-            responseStr += str
+        
+        if (!self.shouldParse) {
+            return
         }
+        
+        if (self.elementName == "Furigana") {
+            responseStr += str
+            return
+        }
+        
+        if (self.elementName == "Surface") {
+            if (self.exceptions.contains(str)) {
+                responseStr += str
+            }
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
+        guard let str = String(data: CDATABlock, encoding: .utf8) else { return }
+        responseStr += str
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
