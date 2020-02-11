@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate {
     
-    // MARK: Interface Builder Related
+    // MARK: - Interface Builder Related
     
     @IBOutlet weak var inputTextView: UITextView?
     @IBOutlet weak var outputTextView: UITextView?
@@ -26,25 +26,31 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Check input
         guard let sentence = inputTextView?.text else { return }
         if (sentence.count <= 0) {
-            // show alert
+            self.view.makeToast("テキストを入力してください", duration: 1.5)
             return
         }
         
         let option = UserDefaults.standard.integer(forKey: kAPIOption)
         switch(option) {
             case kAPIGoo:
-                HttpRequest.shared.requestGooAPI(sentence: sentence)
+                HttpRequest.shared.requestGooAPI(sentence: sentence, delegate: self)
                 break
             case kAPIYahoo:
-                HttpRequest.shared.requestYahooAPI(sentence: sentence)
+                HttpRequest.shared.requestYahooAPI(sentence: sentence, delegate: self)
                 break;
             default:
-                // show alert: invalid engine
+                self.view.makeToast("無効なAPI", duration: 1.5)
             return
         }
     }
+    
+    @IBAction func copyButton(sender: UIButton) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = outputTextView?.text
+        self.view.makeToast("コピーしました", duration: 1.5, position: .bottom)
+    }
 
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +73,23 @@ class ViewController: UIViewController, UITextViewDelegate {
         outputTextView?.layer.cornerRadius = 5.0
     }
     
-    // MARK: UITextViewDelegate
+    // MARK: - HttpRequestDelegate
+    
+    func didFinishConvert(output: String?) {
+        guard let output = output else { return }
+        DispatchQueue.main.async {
+            self.outputTextView?.text = output
+        }
+    }
+    
+    func didFailConvert(error: String?) {
+        guard let error = error else { return }
+        DispatchQueue.main.async {
+            self.outputTextView?.text = error
+        }
+    }
+    
+    // MARK: - UITextViewDelegate
     
     func textViewDidChange(_ textView: UITextView) {
         if (textView.text.count > 0) {

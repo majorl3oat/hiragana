@@ -10,7 +10,7 @@ import Foundation
 
 class APIYahoo: NSObject, XMLParserDelegate {
     
-    // MARK: Initialize
+    // MARK: - Declaration
     
     struct API {
         private init() {}
@@ -24,21 +24,24 @@ class APIYahoo: NSObject, XMLParserDelegate {
     var elementName: String = String()
     var responseStr: String = String()
     var shouldParse: Bool = true
+    var isError: Bool = false
     let exceptions: [String] = ["。", "、", "＊", "？", "！", "(", ")", "「", "」", "…"]
         
     static let shared = APIYahoo()
+    var delegate: HttpRequestDelegate?
+    
+    // MARK: - Main Functions
     
     private override init() {}
     
-    // MARK: Functions
-    
-    func sendRequest(sentence: String?) {
-        // Config URL
+    func sendRequest(sentence: String?, delegate: HttpRequestDelegate?) {
+        // Config
         let url = URL(string: API.baseURL)
         guard let requestUrl = url else {
             print("Invalid URL")
             return
         }
+        self.delegate = delegate
         
         // Prepare Request Object
         var request = URLRequest(url: requestUrl)
@@ -54,12 +57,11 @@ class APIYahoo: NSObject, XMLParserDelegate {
         // Send request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("Error: \(error)")
+                print("URLSession Error: \(error)")
                 return
             }
             
             guard let data = data else { return }
-            
             // Parse XML Response
             let parser = XMLParser(data: data)
             parser.delegate = self
@@ -68,7 +70,7 @@ class APIYahoo: NSObject, XMLParserDelegate {
         task.resume()
     }
     
-    // MARK: XMLParserDelegate
+    // MARK: - XMLParserDelegate
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.elementName = elementName
@@ -78,6 +80,8 @@ class APIYahoo: NSObject, XMLParserDelegate {
         } else if (elementName == "SubWordList") {
             // To skip <SubWordList>
             self.shouldParse = false
+        } else if (elementName == "Error") {
+            self.isError = true
         }
     }
     
@@ -90,13 +94,14 @@ class APIYahoo: NSObject, XMLParserDelegate {
         
         if (self.elementName == "Furigana") {
             responseStr += str
-            return
-        }
-        
-        if (self.elementName == "Surface") {
-            if (self.exceptions.contains(str)) {
+        } else if (self.elementName == "Surface") {
+            let pattern = "[a-zA-Z0-9]+"
+            if (self.exceptions.contains(str) ||
+                (str.range(of: pattern, options:.regularExpression) != nil)) {
                 responseStr += str
             }
+        } else if (self.elementName == "Message") {
+            responseStr += str
         }
     }
     
@@ -106,6 +111,11 @@ class APIYahoo: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print(responseStr)
+        if (isError) {
+            self.delegate?.didFailConvert(error: responseStr)
+        } else {
+            self.delegate?.didFinishConvert(output: responseStr)
+        }
+        responseStr = ""
     }
 }

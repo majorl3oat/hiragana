@@ -10,15 +10,26 @@ import Foundation
 
 class APIGoo {
     
+    // MARK: - Declaration
+    
     struct requestJSONModel : Codable {
         var app_id: String
         var sentence: String?
         var output_type: String
     }
 
-    struct responseJSONModel : Codable {
+    struct responseJSONModel : Decodable {
         var output_type: String
         var converted: String?
+    }
+    
+    struct errorJSONModel : Decodable {
+        var error: errorModel
+    }
+    
+    struct errorModel : Decodable {
+        var code: Int
+        var message: String
     }
 
     struct API {
@@ -30,18 +41,23 @@ class APIGoo {
         static let appID = "282c46b372af8a654aa7b628237122b74dc8e0ee09010f5f148ac70ca099f8c6"
         static let outputType = "hiragana"
     }
-
+    
     static let shared = APIGoo()
+    var delegate: HttpRequestDelegate?
+    
+    // MARK: - Main Functions
     
     private init() {}
     
-    func sendRequest(sentence: String?) {
-        // Config URL
+    func sendRequest(sentence: String?, delegate: HttpRequestDelegate?) {
+        
+        // Config
         let url = URL(string: API.baseURL)
         guard let requestUrl = url else {
             print("Invalid URL")
             return
         }
+        self.delegate = delegate
         
         // Prepare Request Object
         var request = URLRequest(url: requestUrl)
@@ -60,16 +76,24 @@ class APIGoo {
         // Send request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("Error: \(error)")
+                print("URLSession Error: \(error)")
                 return
             }
             
-            guard let data = data else {return}
-            do {
-                let res = try JSONDecoder().decode(responseJSONModel.self, from: data)
-                print(res.converted!)
-            } catch let jsonErr {
-                print("JSON Error: \(jsonErr)")
+            guard let data = data else { return }
+
+            // Check error from API
+            let err = try? JSONDecoder().decode(errorJSONModel.self, from: data)
+            if (err != nil) {
+                let errStr = String(err?.error.code ?? -1) + " : " + (err?.error.message ?? "Unexpected Error")
+                self.delegate?.didFailConvert(error: errStr)
+                return
+            }
+            
+            // Check response if no error
+            let res = try? JSONDecoder().decode(responseJSONModel.self, from: data)
+            if (res != nil) {
+                self.delegate?.didFinishConvert(output: res?.converted)
             }
         }
         task.resume()

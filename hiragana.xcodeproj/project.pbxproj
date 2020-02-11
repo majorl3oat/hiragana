@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D039F5223F30050007F1139 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5123F30050007F1139 /* Constants.swift */; };
+		7D039F5523F33751007F1139 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5423F33751007F1139 /* Toast.swift */; };
 		7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3423F18CD9009A866D /* AppDelegate.swift */; };
 		7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */; };
 		7DB0ED3923F18CD9009A866D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3823F18CD9009A866D /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		7D039F5123F30050007F1139 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7D039F5423F33751007F1139 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		7DB0ED3123F18CD9009A866D /* hiragana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiragana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB0ED3423F18CD9009A866D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D039F5323F33751007F1139 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				7D039F5423F33751007F1139 /* Toast.swift */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
 		7DB0ED2823F18CD9009A866D = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 				7DB0ED4223F18CDB009A866D /* Info.plist */,
 				7DF111F223F2A7B600426D68 /* ViewController */,
 				7DF111F123F2A79500426D68 /* API */,
+				7D039F5323F33751007F1139 /* External */,
 			);
 			path = hiragana;
 			sourceTree = "<group>";
@@ -297,6 +308,7 @@
 				7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */,
 				7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */,
 				7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */,
+				7D039F5523F33751007F1139 /* Toast.swift in Sources */,
 				7D039F5223F30050007F1139 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

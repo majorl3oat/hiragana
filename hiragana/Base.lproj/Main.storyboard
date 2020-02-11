@@ -21,7 +21,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Uop-RU-0cP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-ts-cRk">
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="225" id="PZ3-2j-f3b"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQn-py-5yy">
@@ -94,7 +94,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="vDq-Yg-35D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -110,6 +110,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYr-bV-xCf">
+                                <rect key="frame" x="25" y="701" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="8Y2-Bo-eak"/>
+                                    <constraint firstAttribute="height" constant="30" id="lQR-YQ-IXn"/>
+                                </constraints>
+                                <state key="normal" title="コピー"/>
+                                <connections>
+                                    <action selector="copyButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E8q-cd-Hn8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -120,6 +131,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v3d-uY-R4e" secondAttribute="trailing" constant="15" id="5eI-rc-4pt"/>
                             <constraint firstItem="iLQ-7Z-Y8I" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6MZ-mM-3gn"/>
                             <constraint firstItem="HQn-py-5yy" firstAttribute="top" secondItem="ofc-LR-SAA" secondAttribute="bottom" constant="8" id="A3k-iH-Zsc"/>
+                            <constraint firstItem="bYr-bV-xCf" firstAttribute="top" secondItem="fm9-ts-cRk" secondAttribute="bottom" constant="8" id="Eau-Mj-Tz8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="In9-TE-gTJ" secondAttribute="trailing" constant="20" id="Fzn-Ej-sAU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fm9-ts-cRk" secondAttribute="trailing" constant="20" id="Itr-gr-QaW"/>
                             <constraint firstItem="fBx-v0-hkY" firstAttribute="top" secondItem="ofc-LR-SAA" secondAttribute="bottom" constant="8" id="J2k-9c-qIE"/>
@@ -127,6 +139,7 @@
                             <constraint firstItem="DMG-yH-cRH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="PgU-xK-5g7"/>
                             <constraint firstItem="ofc-LR-SAA" firstAttribute="top" secondItem="DMG-yH-cRH" secondAttribute="bottom" constant="5" id="Si9-Sg-Eeu"/>
                             <constraint firstItem="ofc-LR-SAA" firstAttribute="top" secondItem="iLQ-7Z-Y8I" secondAttribute="bottom" constant="44" id="WP2-qK-T1q"/>
+                            <constraint firstItem="bYr-bV-xCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="XSW-1m-bfL"/>
                             <constraint firstItem="In9-TE-gTJ" firstAttribute="top" secondItem="HQn-py-5yy" secondAttribute="bottom" constant="38" id="a7C-gL-gZL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ofc-LR-SAA" secondAttribute="trailing" constant="20" id="bDc-Pb-iMh"/>
                             <constraint firstItem="In9-TE-gTJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="dxb-kx-AB2"/>
@@ -136,6 +149,7 @@
                             <constraint firstItem="fm9-ts-cRk" firstAttribute="top" secondItem="In9-TE-gTJ" secondAttribute="bottom" constant="9" id="mF0-FQ-w0w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HQn-py-5yy" secondAttribute="trailing" constant="20" id="q9x-CH-iTJ"/>
                             <constraint firstItem="HQn-py-5yy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fBx-v0-hkY" secondAttribute="trailing" constant="8" symbolic="YES" id="qAn-kc-BUW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bYr-bV-xCf" secondAttribute="trailing" constant="343" id="swe-Ir-H3U"/>
                             <constraint firstItem="fm9-ts-cRk" firstAttribute="top" secondItem="ofc-LR-SAA" secondAttribute="bottom" constant="105" id="syI-EM-Rdx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMG-yH-cRH" secondAttribute="trailing" constant="20" id="xjY-CC-iKb"/>
                         </constraints>

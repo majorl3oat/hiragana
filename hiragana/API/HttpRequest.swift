@@ -8,19 +8,32 @@
 
 import Foundation
 
+protocol HttpRequestDelegate: AnyObject {
+    func didFinishConvert(output: String?)
+    func didFailConvert(error: String?)
+}
+
 class HttpRequest {
     
     static let shared = HttpRequest()
     
     private init() {}
     
-    func requestGooAPI(sentence: String?) {
+    func requestGooAPI(sentence: String?, delegate: HttpRequestDelegate?) {
         let api = APIGoo.shared
-        api.sendRequest(sentence: sentence)
+        guard let delegate = delegate else {
+            print("Invalid Delegation")
+            return
+        }
+        api.sendRequest(sentence: sentence, delegate: delegate)
     }
     
-    func requestYahooAPI(sentence: String?) {
+    func requestYahooAPI(sentence: String?, delegate: HttpRequestDelegate?) {
         let api = APIYahoo.shared
-        api.sendRequest(sentence: sentence)
+        guard let delegate = delegate else {
+            print("Invalid Delegation")
+            return
+        }
+        api.sendRequest(sentence: sentence, delegate: delegate)
     }
 }

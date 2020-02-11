@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    // MARK: Interface Builder Related
+    // MARK: - Interface Builder Related
     
     @IBOutlet weak var tableView: UITableView?
     
@@ -19,14 +19,14 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.dismiss(animated: true, completion: nil);
     }
     
-    // MARK: Global Variable
+    // MARK: - Global Variable
 
     let engineOption: [String] = ["Goo API","Yahoo API"]
     let cellReuseIdentifier = "cell"
     var selected: Int = 0
 
     
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.selected = UserDefaults.standard.integer(forKey: kAPIOption)
         self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
+    
+    // MARK: - UITableViewDelegate&Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.engineOption.count
