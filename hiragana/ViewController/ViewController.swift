@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //HttpRequest.shared.requestGooAPI(sentence: "天気がいいから散歩しましょう。")
+        //HttpRequest.shared.requestYahooAPI(sentence: "天気がいいから散歩しましょう。")
     }
 }
 

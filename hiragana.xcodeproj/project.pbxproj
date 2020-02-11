@@ -18,6 +18,7 @@
 		7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF111EB23F1ADF600426D68 /* SettingViewController.swift */; };
 		7DF111EE23F299FC00426D68 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF111ED23F299FC00426D68 /* HttpRequest.swift */; };
 		7DF111F023F29AE200426D68 /* APIGoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF111EF23F29AE200426D68 /* APIGoo.swift */; };
+		7DF111F423F2A97300426D68 /* APIYahoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF111F323F2A97300426D68 /* APIYahoo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7DF111EB23F1ADF600426D68 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7DF111ED23F299FC00426D68 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		7DF111EF23F29AE200426D68 /* APIGoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGoo.swift; sourceTree = "<group>"; };
+		7DF111F323F2A97300426D68 /* APIYahoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIYahoo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				7DF111ED23F299FC00426D68 /* HttpRequest.swift */,
 				7DF111EF23F29AE200426D68 /* APIGoo.swift */,
+				7DF111F323F2A97300426D68 /* APIYahoo.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB0ED3923F18CD9009A866D /* ViewController.swift in Sources */,
+				7DF111F423F2A97300426D68 /* APIYahoo.swift in Sources */,
 				7DF111EE23F299FC00426D68 /* HttpRequest.swift in Sources */,
 				7DF111F023F29AE200426D68 /* APIGoo.swift in Sources */,
 				7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */,

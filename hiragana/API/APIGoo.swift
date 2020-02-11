@@ -49,27 +49,29 @@ class APIGoo {
         request.setValue(API.contentType, forHTTPHeaderField: "Content-Type")
         
         // Set HTTP Request Body
-        let requestmodel = requestJSONModel(app_id: API.appID, sentence:sentence, output_type: API.outputType)
+        let requestmodel = requestJSONModel(app_id: API.appID,
+                                            sentence:sentence,
+                                            output_type: API.outputType)
+        
+        // Set request body
         let jsonData = try? JSONEncoder().encode(requestmodel)
-        let jsonD = try? JSONDecoder().decode(requestJSONModel.self, from: jsonData!)
-        print(jsonD!)
         request.httpBody = jsonData
         
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                
-                if let error = error {
-                    print("Error took place \(error)")
-                    return
-                }
-                guard let data = data else {return}
-                do {
-                    let res = try JSONDecoder().decode(responseJSONModel.self, from: data)
-                    print(res.converted!)
-                } catch let jsonErr {
-                    print("JSON Error: \(jsonErr)")
-                }
+        // Send request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            guard let data = data else {return}
+            do {
+                let res = try JSONDecoder().decode(responseJSONModel.self, from: data)
+                print(res.converted!)
+            } catch let jsonErr {
+                print("JSON Error: \(jsonErr)")
+            }
         }
         task.resume()
     }
-
 }

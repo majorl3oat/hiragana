@@ -18,4 +18,9 @@ class HttpRequest {
         let api = APIGoo.shared
         api.sendRequest(sentence: sentence)
     }
+    
+    func requestYahooAPI(sentence: String?) {
+        let api = APIYahoo.shared
+        api.sendRequest(sentence: sentence)
+    }
 }
