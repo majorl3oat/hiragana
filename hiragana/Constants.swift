@@ -11,3 +11,5 @@ import Foundation
 let kAPIOption:String = "API_OPTION"
 let kAPIGoo: Int = 0
 let kAPIYahoo: Int = 1
+let kToastDuration: Double = 1.5
+let kRequestTimeout: Double = 15.0

@@ -12,6 +12,7 @@ import Network
 class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate {
     
     let reachability = try! Reachability()
+    var timer:Timer?
     
     // MARK: - Interface Builder
     
@@ -29,12 +30,12 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         // Check input
         guard let sentence = inputTextView?.text else { return }
         if (sentence.count <= 0) {
-            self.view.makeToast("テキストを入力してください", duration: 1.5)
+            self.view.makeToast("テキストを入力してください", duration: kToastDuration)
             return
         }
         
         if !(Utilities.shared.checkReachable()) {
-            self.view.makeToast("ネットワークの原因で認証に失敗しました", duration: 1.5)
+            self.view.makeToast("ネットワークの原因で認証に失敗しました", duration: kToastDuration)
             return
         }
         
@@ -47,16 +48,23 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
                 HttpRequest.shared.requestYahooAPI(sentence: sentence, delegate: self)
                 break;
             default:
-                self.view.makeToast("無効なAPI", duration: 1.5)
+                self.view.makeToast("無効なAPI", duration: kToastDuration)
             return
         }
         self.view.makeToastActivity(.center)
+        timer = Timer.scheduledTimer(timeInterval: kRequestTimeout, target: self, selector: #selector(self.removeIndicator), userInfo: nil, repeats: false)
     }
     
     @IBAction func copyButton(sender: UIButton) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = outputTextView?.text
-        self.view.makeToast("コピーしました", duration: 1.5, position: .bottom)
+        self.view.makeToast("コピーしました", duration: kToastDuration, position: .bottom)
+    }
+    
+    @objc func removeIndicator() {
+        // Has internet connection but time out
+        self.view.hideAllToasts(includeActivity: true, clearQueue: true)
+        self.view.makeToast("ネットワークの原因で認証に失敗しました", duration: kToastDuration)
     }
 
     // MARK: - Main Functions
@@ -86,6 +94,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
     
     func didFinishConvert(output: String?) {
         guard let output = output else { return }
+        timer?.invalidate()
         DispatchQueue.main.async {
             self.outputTextView?.text = output
             self.view.hideAllToasts(includeActivity: true, clearQueue: true)
@@ -94,6 +103,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
     
     func didFailConvert(error: String?) {
         guard let error = error else { return }
+        timer?.invalidate()
         DispatchQueue.main.async {
             self.outputTextView?.text = error
             self.view.hideAllToasts(includeActivity: true, clearQueue: true)
