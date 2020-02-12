@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7D039F5223F30050007F1139 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5123F30050007F1139 /* Constants.swift */; };
 		7D039F5523F33751007F1139 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5423F33751007F1139 /* Toast.swift */; };
+		7D08BD1A23F41062008034E1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D08BD1923F41062008034E1 /* Utilities.swift */; };
+		7D08BD2123F425A1008034E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D08BD2023F425A1008034E1 /* Reachability.swift */; };
+		7D66F77B23F405A40014B2F2 /* splash1242.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D66F77A23F405A40014B2F2 /* splash1242.png */; };
 		7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3423F18CD9009A866D /* AppDelegate.swift */; };
 		7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */; };
 		7DB0ED3923F18CD9009A866D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3823F18CD9009A866D /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 /* Begin PBXFileReference section */
 		7D039F5123F30050007F1139 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D039F5423F33751007F1139 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		7D08BD1923F41062008034E1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7D08BD2023F425A1008034E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7D66F77A23F405A40014B2F2 /* splash1242.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash1242.png; sourceTree = "<group>"; };
 		7DB0ED3123F18CD9009A866D /* hiragana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiragana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB0ED3423F18CD9009A866D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,9 +97,26 @@
 		7D039F5323F33751007F1139 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7D08BD2023F425A1008034E1 /* Reachability.swift */,
 				7D039F5423F33751007F1139 /* Toast.swift */,
 			);
 			path = External;
+			sourceTree = "<group>";
+		};
+		7D08BD1B23F4106A008034E1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7D08BD1923F41062008034E1 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7D66F77923F405A40014B2F2 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				7D66F77A23F405A40014B2F2 /* splash1242.png */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		7DB0ED2823F18CD9009A866D = {
@@ -129,6 +152,8 @@
 				7DF111F223F2A7B600426D68 /* ViewController */,
 				7DF111F123F2A79500426D68 /* API */,
 				7D039F5323F33751007F1139 /* External */,
+				7D66F77923F405A40014B2F2 /* Asset */,
+				7D08BD1B23F4106A008034E1 /* Utilities */,
 			);
 			path = hiragana;
 			sourceTree = "<group>";
@@ -275,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB0ED4123F18CDB009A866D /* LaunchScreen.storyboard in Resources */,
+				7D66F77B23F405A40014B2F2 /* splash1242.png in Resources */,
 				7DB0ED3E23F18CDB009A866D /* Assets.xcassets in Resources */,
 				7DB0ED3C23F18CD9009A866D /* Main.storyboard in Resources */,
 			);
@@ -308,7 +334,9 @@
 				7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */,
 				7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */,
 				7DF111EC23F1ADF600426D68 /* SettingViewController.swift in Sources */,
+				7D08BD2123F425A1008034E1 /* Reachability.swift in Sources */,
 				7D039F5523F33751007F1139 /* Toast.swift in Sources */,
+				7D08BD1A23F41062008034E1 /* Utilities.swift in Sources */,
 				7D039F5223F30050007F1139 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.majorl3oat.hiragana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -510,7 +538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.majorl3oat.hiragana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

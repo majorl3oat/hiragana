@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Network
 
 class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate {
     
-    // MARK: - Interface Builder Related
+    let reachability = try! Reachability()
+    
+    // MARK: - Interface Builder
     
     @IBOutlet weak var inputTextView: UITextView?
     @IBOutlet weak var outputTextView: UITextView?
@@ -30,6 +33,11 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
             return
         }
         
+        if !(Utilities.shared.checkReachable()) {
+            self.view.makeToast("ネットワークの原因で認証に失敗しました", duration: 1.5)
+            return
+        }
+        
         let option = UserDefaults.standard.integer(forKey: kAPIOption)
         switch(option) {
             case kAPIGoo:
@@ -42,6 +50,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
                 self.view.makeToast("無効なAPI", duration: 1.5)
             return
         }
+        self.view.makeToastActivity(.center)
     }
     
     @IBAction func copyButton(sender: UIButton) {
@@ -50,7 +59,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         self.view.makeToast("コピーしました", duration: 1.5, position: .bottom)
     }
 
-    // MARK: - Life Cycle
+    // MARK: - Main Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +88,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         guard let output = output else { return }
         DispatchQueue.main.async {
             self.outputTextView?.text = output
+            self.view.hideAllToasts(includeActivity: true, clearQueue: true)
         }
     }
     
@@ -86,6 +96,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         guard let error = error else { return }
         DispatchQueue.main.async {
             self.outputTextView?.text = error
+            self.view.hideAllToasts(includeActivity: true, clearQueue: true)
         }
     }
     

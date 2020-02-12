@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    // MARK: - Interface Builder Related
+    // MARK: - Interface Builder
     
     @IBOutlet weak var tableView: UITableView?
     
@@ -26,7 +26,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     var selected: Int = 0
 
     
-    // MARK: - Life Cycle
+    // MARK: - Main Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,14 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - UITableViewDelegate&Datasource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "API"
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.engineOption.count

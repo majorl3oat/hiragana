@@ -113,7 +113,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYr-bV-xCf">
                                 <rect key="frame" x="25" y="701" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="8Y2-Bo-eak"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="jLl-pQ-HJY"/>
                                     <constraint firstAttribute="height" constant="30" id="lQR-YQ-IXn"/>
                                 </constraints>
                                 <state key="normal" title="コピー"/>
@@ -147,9 +147,9 @@
                             <constraint firstItem="fBx-v0-hkY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="hIW-aD-pUt"/>
                             <constraint firstItem="DMG-yH-cRH" firstAttribute="top" secondItem="iLQ-7Z-Y8I" secondAttribute="bottom" constant="19" id="l1Z-KX-LIT"/>
                             <constraint firstItem="fm9-ts-cRk" firstAttribute="top" secondItem="In9-TE-gTJ" secondAttribute="bottom" constant="9" id="mF0-FQ-w0w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bYr-bV-xCf" secondAttribute="trailing" id="pr9-e5-0iJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HQn-py-5yy" secondAttribute="trailing" constant="20" id="q9x-CH-iTJ"/>
                             <constraint firstItem="HQn-py-5yy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fBx-v0-hkY" secondAttribute="trailing" constant="8" symbolic="YES" id="qAn-kc-BUW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bYr-bV-xCf" secondAttribute="trailing" constant="343" id="swe-Ir-H3U"/>
                             <constraint firstItem="fm9-ts-cRk" firstAttribute="top" secondItem="ofc-LR-SAA" secondAttribute="bottom" constant="105" id="syI-EM-Rdx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DMG-yH-cRH" secondAttribute="trailing" constant="20" id="xjY-CC-iKb"/>
                         </constraints>
