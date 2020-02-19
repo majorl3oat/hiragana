@@ -201,7 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Dae-Qs-Tew" secondAttribute="trailing" constant="20" id="Aq1-5A-LGf"/>
                                     <constraint firstItem="Jem-k7-vBy" firstAttribute="top" secondItem="Wpf-fh-pfi" secondAttribute="top" constant="52" id="LIo-ps-8T4"/>
                                     <constraint firstAttribute="bottom" secondItem="Jem-k7-vBy" secondAttribute="bottom" constant="8" id="SfV-LL-iwx"/>
-                                    <constraint firstItem="Dae-Qs-Tew" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jem-k7-vBy" secondAttribute="trailing" constant="294" id="W38-co-EAC"/>
+                                    <constraint firstItem="Dae-Qs-Tew" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jem-k7-vBy" secondAttribute="trailing" constant="8" symbolic="YES" id="W38-co-EAC"/>
                                     <constraint firstAttribute="bottom" secondItem="Dae-Qs-Tew" secondAttribute="bottom" constant="13" id="Xuh-Y4-W0C"/>
                                     <constraint firstItem="Dae-Qs-Tew" firstAttribute="top" secondItem="Wpf-fh-pfi" secondAttribute="top" constant="52" id="sgY-lT-sBg"/>
                                 </constraints>
