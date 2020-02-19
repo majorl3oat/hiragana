@@ -18,7 +18,7 @@ class APIYahoo: NSObject, XMLParserDelegate {
         static let baseURL = "https://jlp.yahooapis.jp/FuriganaService/V1/furigana"
         static let method = "POST"
         static let contentType = "application/x-www-form-urlencoded"
-        static let userAgent = "Yahoo AppID: dj00aiZpPVg5c1c5S3lzT0huRSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTE-"
+        static let userAgent = "Yahoo AppID: " + kAPIYahooAppID
     }
     
     var elementName: String = String()

@@ -38,7 +38,7 @@ class APIGoo {
         static let baseURL = "https://labs.goo.ne.jp/api/hiragana"
         static let method = "POST"
         static let contentType = "application/json"
-        static let appID = "282c46b372af8a654aa7b628237122b74dc8e0ee09010f5f148ac70ca099f8c6"
+        static let appID = kAPIGooAppID
         static let outputType = "hiragana"
     }
     
