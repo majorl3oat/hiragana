@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
     @IBAction func clearButton(sender: UIButton) {
         inputTextView?.text = ""
         inputPlaceholder?.isHidden = false
+        inputTextView?.becomeFirstResponder()
     }
     
     @IBAction func convertButton(sender: UIButton) {
@@ -66,6 +67,10 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         self.view.hideAllToasts(includeActivity: true, clearQueue: true)
         self.view.makeToast("ネットワークの原因で認証に失敗しました", duration: kToastDuration)
     }
+    
+    @objc func doneButton(sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+    }
 
     // MARK: - Main Functions
     
@@ -73,6 +78,8 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         super.viewDidLoad()
         
         initView()
+        initKeyboardAccessory()
+        initTapHideKeyboard()
     }
     
     func initView() {
@@ -88,6 +95,24 @@ class ViewController: UIViewController, UITextViewDelegate, HttpRequestDelegate 
         outputTextView?.layer.borderWidth = 0.5
         outputTextView?.layer.borderColor = borderColor
         outputTextView?.layer.cornerRadius = 5.0
+    }
+    
+    func initKeyboardAccessory() {
+        let toolbarSize:CGRect = CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30))
+        let accessoryView = UIToolbar(frame: toolbarSize)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(doneButton))
+        
+        accessoryView.setItems([flexSpace, doneBtn], animated: false)
+        accessoryView.sizeToFit()
+        inputTextView?.inputAccessoryView = accessoryView
+    }
+    
+    func initTapHideKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self.view,
+                                         action: #selector(UIView.endEditing))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - HttpRequestDelegate
