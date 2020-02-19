@@ -11,6 +11,7 @@
 		7D039F5523F33751007F1139 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D039F5423F33751007F1139 /* Toast.swift */; };
 		7D08BD1A23F41062008034E1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D08BD1923F41062008034E1 /* Utilities.swift */; };
 		7D08BD2123F425A1008034E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D08BD2023F425A1008034E1 /* Reachability.swift */; };
+		7D1BA1D323FD90F50097A7E7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7D1BA1D223FD90F50097A7E7 /* .gitignore */; };
 		7D66F77B23F405A40014B2F2 /* splash1242.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D66F77A23F405A40014B2F2 /* splash1242.png */; };
 		7DB0ED3523F18CD9009A866D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3423F18CD9009A866D /* AppDelegate.swift */; };
 		7DB0ED3723F18CD9009A866D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ED3623F18CD9009A866D /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 		7D039F5423F33751007F1139 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		7D08BD1923F41062008034E1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7D08BD2023F425A1008034E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7D1BA1D223FD90F50097A7E7 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7D66F77A23F405A40014B2F2 /* splash1242.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash1242.png; sourceTree = "<group>"; };
 		7DB0ED3123F18CD9009A866D /* hiragana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiragana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB0ED3423F18CD9009A866D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		7DB0ED2823F18CD9009A866D = {
 			isa = PBXGroup;
 			children = (
+				7D1BA1D223FD90F50097A7E7 /* .gitignore */,
 				7DB0ED3323F18CD9009A866D /* hiragana */,
 				7DB0ED4A23F18CDC009A866D /* hiraganaTests */,
 				7DB0ED5523F18CDC009A866D /* hiraganaUITests */,
@@ -299,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1BA1D323FD90F50097A7E7 /* .gitignore in Resources */,
 				7DB0ED4123F18CDB009A866D /* LaunchScreen.storyboard in Resources */,
 				7D66F77B23F405A40014B2F2 /* splash1242.png in Resources */,
 				7DB0ED3E23F18CDB009A866D /* Assets.xcassets in Resources */,
